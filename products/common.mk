@@ -20,6 +20,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.com.android.dateformat=MM-dd-yyyy \
     ro.com.android.dataroaming=false
 
+# T-Mobile theme engine
+include vendor/aosp/products/themes_common.mk
+
 PRODUCT_COPY_FILES += \
     vendor/aosp/prebuilt/common/bin/backuptool.sh:system/bin/backuptool.sh \
     vendor/aosp/prebuilt/common/bin/modelid_cfg.sh:system/bin/modelid_cfg.sh \
