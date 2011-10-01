@@ -22,4 +22,4 @@ PRODUCT_SPECIFIC_DEFINES += TARGET_PRELINKER_MAP=$(TOP)/vendor/aosp/prelink-linu
 # Set ro.modversion
 #
 PRODUCT_PROPERTY_OVERRIDES += \
-  ro.modversion=AOSP-2.3.4-Heroc-$(shell date +%0d%^b%Y-%H%M%S)
+  ro.modversion=TeamHeroC-2.3.5-$(shell date +%0d%^b%Y-%H%M%S)
