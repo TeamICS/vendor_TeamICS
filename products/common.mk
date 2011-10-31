@@ -11,8 +11,6 @@ KERNEL_MODULES_DIR:=/system/lib/modules
 # Tiny toolbox
 TINY_TOOLBOX:=true
 
-PRODUCT_PACKAGE_OVERLAYS += vendor/aosp/overlay/common
-
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.url.legal=http://www.google.com/intl/%s/mobile/android/basic/phone-legal.html \
     ro.url.legal.android_privacy=http://www.google.com/intl/%s/mobile/android/basic/privacy.html \
@@ -21,6 +19,23 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.setupwizard.enterprise_mode=1 \
     ro.com.android.dateformat=MM-dd-yyyy \
     ro.com.android.dataroaming=false
+
+# THC specific product packages
+PRODUCT_PACKAGES += \
+    AndroidTerm \
+    CMParts \
+    CMScreenshot \
+    screenshot \
+    FileManager
+
+# Extra tools in THC
+PRODUCT_PACKAGES += \
+    liblzo \
+    lsof \
+    openvpn
+
+# Common THC Overlay
+PRODUCT_PACKAGE_OVERLAYS += vendor/aosp/overlay/common
 
 # T-Mobile theme engine
 include vendor/aosp/products/themes_common.mk
