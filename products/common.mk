@@ -27,7 +27,7 @@ PRODUCT_PACKAGES += \
     CMScreenshot \
     screenshot \
     DSPManager \
-    libcyanogen-dsp
+    libcyanogen-dsp \
     FileManager
 
 # Extra tools in THC
