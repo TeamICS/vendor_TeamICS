@@ -1,2 +1,2 @@
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/aosp_heroc.mk
+    $(LOCAL_DIR)/TeamICS_heroc.mk

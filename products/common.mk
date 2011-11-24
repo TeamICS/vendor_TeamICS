@@ -1,6 +1,6 @@
-# Generic aosp product
-PRODUCT_NAME := aosp
-PRODUCT_BRAND := aosp
+# Generic TeamICS product
+PRODUCT_NAME := TeamICS
+PRODUCT_BRAND := TeamICS
 PRODUCT_DEVICE := generic
 
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
@@ -37,35 +37,35 @@ PRODUCT_PACKAGES += \
     openvpn
 
 # Common THC Overlay
-PRODUCT_PACKAGE_OVERLAYS += vendor/aosp/overlay/common
+PRODUCT_PACKAGE_OVERLAYS += vendor/TeamICS/overlay/common
 
 # T-Mobile theme engine
-include vendor/aosp/products/themes_common.mk
+include vendor/TeamICS/products/themes_common.mk
 
 PRODUCT_COPY_FILES += \
-    vendor/aosp/prebuilt/common/bin/backuptool.sh:system/bin/backuptool.sh \
-    vendor/aosp/prebuilt/common/bin/modelid_cfg.sh:system/bin/modelid_cfg.sh \
-    vendor/aosp/prebuilt/common/bin/verify_cache_partition_size.sh:system/bin/verify_cache_partition_size.sh \
-    vendor/aosp/prebuilt/common/etc/resolv.conf:system/etc/resolv.conf \
-    vendor/aosp/prebuilt/common/etc/sysctl.conf:system/etc/sysctl.conf \
-    vendor/aosp/prebuilt/common/etc/terminfo/l/linux:system/etc/terminfo/l/linux \
-    vendor/aosp/prebuilt/common/etc/terminfo/u/unknown:system/etc/terminfo/u/unknown \
-    vendor/aosp/prebuilt/common/etc/profile:system/etc/profile \
-    vendor/aosp/prebuilt/common/etc/init.local.rc:system/etc/init.local.rc \
-    vendor/aosp/prebuilt/common/etc/init.d/01sysctl:system/etc/init.d/01sysctl \
-    vendor/aosp/prebuilt/common/etc/init.d/03firstboot:system/etc/init.d/03firstboot \
-    vendor/aosp/prebuilt/common/etc/init.d/04modules:system/etc/init.d/04modules \
-    vendor/aosp/prebuilt/common/etc/init.d/05mountsd:system/etc/init.d/05mountsd \
-    vendor/aosp/prebuilt/common/etc/init.d/06mountdl:system/etc/init.d/06mountdl \
-    vendor/aosp/prebuilt/common/etc/init.d/20userinit:system/etc/init.d/20userinit \
-    vendor/aosp/prebuilt/common/bin/handle_compcache:system/bin/handle_compcache \
-    vendor/aosp/prebuilt/common/bin/compcache:system/bin/compcache \
-    vendor/aosp/prebuilt/common/bin/fix_permissions:system/bin/fix_permissions \
-    vendor/aosp/prebuilt/common/bin/sysinit:system/bin/sysinit \
-    vendor/aosp/prebuilt/common/xbin/htop:system/xbin/htop \
-    vendor/aosp/prebuilt/common/xbin/irssi:system/xbin/irssi \
-    vendor/aosp/prebuilt/common/xbin/powertop:system/xbin/powertop \
-    vendor/aosp/prebuilt/common/xbin/openvpn-up.sh:system/xbin/openvpn-up.sh
+    vendor/TeamICS/prebuilt/common/bin/backuptool.sh:system/bin/backuptool.sh \
+    vendor/TeamICS/prebuilt/common/bin/modelid_cfg.sh:system/bin/modelid_cfg.sh \
+    vendor/TeamICS/prebuilt/common/bin/verify_cache_partition_size.sh:system/bin/verify_cache_partition_size.sh \
+    vendor/TeamICS/prebuilt/common/etc/resolv.conf:system/etc/resolv.conf \
+    vendor/TeamICS/prebuilt/common/etc/sysctl.conf:system/etc/sysctl.conf \
+    vendor/TeamICS/prebuilt/common/etc/terminfo/l/linux:system/etc/terminfo/l/linux \
+    vendor/TeamICS/prebuilt/common/etc/terminfo/u/unknown:system/etc/terminfo/u/unknown \
+    vendor/TeamICS/prebuilt/common/etc/profile:system/etc/profile \
+    vendor/TeamICS/prebuilt/common/etc/init.local.rc:system/etc/init.local.rc \
+    vendor/TeamICS/prebuilt/common/etc/init.d/01sysctl:system/etc/init.d/01sysctl \
+    vendor/TeamICS/prebuilt/common/etc/init.d/03firstboot:system/etc/init.d/03firstboot \
+    vendor/TeamICS/prebuilt/common/etc/init.d/04modules:system/etc/init.d/04modules \
+    vendor/TeamICS/prebuilt/common/etc/init.d/05mountsd:system/etc/init.d/05mountsd \
+    vendor/TeamICS/prebuilt/common/etc/init.d/06mountdl:system/etc/init.d/06mountdl \
+    vendor/TeamICS/prebuilt/common/etc/init.d/20userinit:system/etc/init.d/20userinit \
+    vendor/TeamICS/prebuilt/common/bin/handle_compcache:system/bin/handle_compcache \
+    vendor/TeamICS/prebuilt/common/bin/compcache:system/bin/compcache \
+    vendor/TeamICS/prebuilt/common/bin/fix_permissions:system/bin/fix_permissions \
+    vendor/TeamICS/prebuilt/common/bin/sysinit:system/bin/sysinit \
+    vendor/TeamICS/prebuilt/common/xbin/htop:system/xbin/htop \
+    vendor/TeamICS/prebuilt/common/xbin/irssi:system/xbin/irssi \
+    vendor/TeamICS/prebuilt/common/xbin/powertop:system/xbin/powertop \
+    vendor/TeamICS/prebuilt/common/xbin/openvpn-up.sh:system/xbin/openvpn-up.sh
 
 # Enable SIP+VoIP on all targets
 PRODUCT_COPY_FILES += \

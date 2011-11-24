@@ -1,3 +1,3 @@
-add_lunch_combo aosp_heroc-eng
+add_lunch_combo TeamICS_heroc-eng
 
-PATH=$PATH:$PWD/vendor/aosp/tools ; export PATH
+PATH=$PATH:$PWD/vendor/TeamICS/tools ; export PATH
