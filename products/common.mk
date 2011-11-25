@@ -21,31 +21,28 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.com.android.dataroaming=false
 
 # THC specific product packages
-PRODUCT_PACKAGES += \
-    AndroidTerm \
-    CMParts \
-    CMScreenshot \
-    screenshot \
-    DSPManager \
-    libcyanogen-dsp \
-    FileManager
+##PRODUCT_PACKAGES += \
+##    AndroidTerm \
+##    CMParts \
+##    CMScreenshot \
+##    screenshot \
+##    DSPManager \
+##    libcyanogen-dsp \
+##    FileManager
 
 # Extra tools in THC
-PRODUCT_PACKAGES += \
-    liblzo \
-    lsof \
-    openvpn
+##PRODUCT_PACKAGES += \
+##    liblzo \
+##    lsof \
+##    openvpn
 
 # Common THC Overlay
 PRODUCT_PACKAGE_OVERLAYS += vendor/TeamICS/overlay/common
 
 # T-Mobile theme engine
-include vendor/TeamICS/products/themes_common.mk
+##include vendor/TeamICS/products/themes_common.mk
 
 PRODUCT_COPY_FILES += \
-    vendor/TeamICS/prebuilt/common/bin/backuptool.sh:system/bin/backuptool.sh \
-    vendor/TeamICS/prebuilt/common/bin/modelid_cfg.sh:system/bin/modelid_cfg.sh \
-    vendor/TeamICS/prebuilt/common/bin/verify_cache_partition_size.sh:system/bin/verify_cache_partition_size.sh \
     vendor/TeamICS/prebuilt/common/etc/resolv.conf:system/etc/resolv.conf \
     vendor/TeamICS/prebuilt/common/etc/sysctl.conf:system/etc/sysctl.conf \
     vendor/TeamICS/prebuilt/common/etc/terminfo/l/linux:system/etc/terminfo/l/linux \
@@ -58,14 +55,6 @@ PRODUCT_COPY_FILES += \
     vendor/TeamICS/prebuilt/common/etc/init.d/05mountsd:system/etc/init.d/05mountsd \
     vendor/TeamICS/prebuilt/common/etc/init.d/06mountdl:system/etc/init.d/06mountdl \
     vendor/TeamICS/prebuilt/common/etc/init.d/20userinit:system/etc/init.d/20userinit \
-    vendor/TeamICS/prebuilt/common/bin/handle_compcache:system/bin/handle_compcache \
-    vendor/TeamICS/prebuilt/common/bin/compcache:system/bin/compcache \
-    vendor/TeamICS/prebuilt/common/bin/fix_permissions:system/bin/fix_permissions \
-    vendor/TeamICS/prebuilt/common/bin/sysinit:system/bin/sysinit \
-    vendor/TeamICS/prebuilt/common/xbin/htop:system/xbin/htop \
-    vendor/TeamICS/prebuilt/common/xbin/irssi:system/xbin/irssi \
-    vendor/TeamICS/prebuilt/common/xbin/powertop:system/xbin/powertop \
-    vendor/TeamICS/prebuilt/common/xbin/openvpn-up.sh:system/xbin/openvpn-up.sh
 
 # Enable SIP+VoIP on all targets
 PRODUCT_COPY_FILES += \
