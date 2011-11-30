@@ -1,9 +1,13 @@
 # Inherit AOSP device configuration for desirec.
-$(call inherit-product, device/htc/desirec/device.mk)
+$(call inherit-product, device/htc/desirec/full_desirec.mk)
 
 # Inherit some common stuff.
-$(call inherit-product, vendor/TeamICS/products/common_full.mk)
+$(call inherit-product, vendor/TeamICS/products/common.mk)
 
+# Copy compatible prebuilt files
+PRODUCT_COPY_FILES +=  \
+    vendor/TeamICS/prebuilt/app/Superuser.apk:system/app/Superuser.apk \
+    vendor/TeamICS/prebuilt/media/bootanimation.zip:system/media/bootanimation.zip
 
 #
 # Setup device specific product configuration.
