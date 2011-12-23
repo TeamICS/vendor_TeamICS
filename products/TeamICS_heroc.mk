@@ -8,7 +8,7 @@ $(call inherit-product, vendor/TeamICS/products/common_full.mk)
 #
 # Setup device specific product configuration.
 #
-PRODUCT_NAME := TeamICS_heroc
+PRODUCT_NAME := TeamICS_heroc_old
 PRODUCT_BRAND := sprint
 PRODUCT_DEVICE := heroc
 PRODUCT_MODEL := HERO200

@@ -18,59 +18,72 @@ check_prereq() {
 }
 
 check_installscript() {
-   if [ -f "/tmp/.installscript" -a ! -f "$S/etc/force_backuptool" ];
+   if [ -f "/tmp/.installscript" ] && [ $PROCEED -ne 0 ];
    then
-      echo "/tmp/.installscript found. Skipping backuptool."
-      PROCEED=0;
+      # We have an install script, and ROM versions match!
+      # We now need to check and see if we have force_backup
+      # in either /etc or /tmp/backupdir 
+      if [ -f "$S/etc/force_backuptool" ] || [ -f "$C/force_backuptool" ];
+      then
+         echo "force_backuptool file found, Forcing backuptool."
+      else
+         echo "/tmp/.installscript found. Skipping backuptool."
+         PROCEED=0;
+      fi
    fi
 }
 
 get_files() {
     cat <<EOF
+framework/com.google.android.maps.jar
+framework/com.google.android.media.effects.jar
+lib/libvoicesearch.so
+etc/permissions/com.google.android.media.effects.xml
+etc/permissions/com.google.android.maps.xml
+etc/permissions/features.xml
+app/MediaUploader.apk
+app/GoogleFeedback.apk
+app/GoogleTTS.apk
+app/CalendarGoogle.apk app/Calendar.apk
+app/MarketUpdater.apk
+app/GoogleServicesFramework.apk
+app/YouTube.apk
+app/GenieWidget.apk
+app/GooglePackageVerifierUpdater.apk
+app/SetupWizard.apk app/Provision.apk
+app/GoogleEarth.apk
+app/ChromeBookmarksSyncAdapter.apk
+app/GoogleQuickSearchBox.apk app/QuickSearchBox.apk
+app/GoogleLoginService.apk
+app/Talk.apk
+app/Maps.apk
+app/GooglePackageVerifier.apk
+app/GoogleBackupTransport.apk
+app/GalleryGoogle.apk app/Gallery.apk
+app/Vending.apk
+app/GoogleContactsSyncAdapter.apk
+app/Gmail.apk
+app/OneTimeInitializer.apk
+app/NetworkLocation.apk
+app/GooglePartnerSetup.apk
 app/BooksPhone.apk
 app/CarHomeGoogle.apk
 app/CarHomeLauncher.apk
 app/Facebook.apk
 app/FOTAKill.apk
-app/GenieWidget.apk
-app/Gmail.apk
-app/GoogleBackupTransport.apk
 app/GoogleCalendarSyncAdapter.apk
-app/GoogleContactsSyncAdapter.apk
-app/GoogleFeedback.apk
-app/GooglePartnerSetup.apk
-app/GoogleQuickSearchBox.apk app/QuickSearchBox.apk
-app/GoogleServicesFramework.apk
 app/googlevoice.apk
-app/HtcCopyright.apk
-app/HtcEmailPolicy.apk
-app/HtcSettings.apk
 app/kickback.apk
 app/LatinImeTutorial.apk
-app/Maps.apk
 app/MapsSapphire.apk
-app/MarketUpdater.apk
-app/MediaUploader.apk
-app/NetworkLocation.apk
-app/OneTimeInitializer.apk
 app/PassionQuickOffice.apk
 app/Quickoffice.apk
-app/SetupWizard.apk app/Provision.apk
 app/soundback.apk
 app/Street.apk
-app/Talk.apk
 app/Talk2.apk
 app/talkback.apk
 app/Twitter.apk
-app/Vending.apk
 app/VoiceSearch.apk
-app/YouTube.apk
-etc/permissions/com.google.android.maps.xml
-etc/permissions/features.xml
-framework/com.google.android.maps.jar
-lib/libspeech.so
-lib/libtalk_jni.so
-lib/libvoicesearch.so
 etc/hosts
 etc/custom_backup_list.txt
 etc/force_backuptool
@@ -132,12 +145,17 @@ restore_file() {
    fi
 }
 
-check_installscript;
+# don't (u)mount system if already done
+UMOUNT=0
 
 case "$1" in
    backup)
-      mount $S
+      if [ ! -f "$S/build.prop" ]; then
+         mount $S
+         UMOUNT=1
+      fi
       check_prereq;
+      check_installscript;
       if [ $PROCEED -ne 0 ];
       then
          rm -rf $C
@@ -148,10 +166,17 @@ case "$1" in
            done
          done
       fi
-      umount $S
+      if [ $UMOUNT -ne 0 ]; then
+         umount $S
+      fi
    ;;
    restore)
+      if [ ! -f "$S/build.prop" ]; then
+         mount $S
+         UMOUNT=1
+      fi
       check_prereq;
+      check_installscript;
       if [ $PROCEED -ne 0 ];
       then
          for file_list in get_files get_custom_files; do
@@ -163,6 +188,10 @@ case "$1" in
          done
          rm -rf $C
       fi
+      if [ $UMOUNT -ne 0 ]; then
+         umount $S
+      fi
+      sync
    ;;
    *)
       echo "Usage: $0 {backup|restore}"
