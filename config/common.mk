@@ -30,7 +30,7 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_COPY_FILES +=  \
     vendor/TeamICS/proprietary/Term.apk:system/app/Term.apk \
-    vendor/TeamICS/proprietary/lib/armeabi/libjackpal-androidterm3.so:system/lib/libjackpal-androidterm3.so \
+    vendor/TeamICS/proprietary/lib/armeabi/libjackpal-androidterm4.so:system/lib/libjackpal-androidterm4.so \
     vendor/TeamICS/prebuilt/common/bootanimation.zip:system/media/bootanimation.zip
   	
 
