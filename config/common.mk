@@ -28,10 +28,10 @@ PRODUCT_COPY_FILES += \
     vendor/TeamICS/prebuilt/common/bin/compcache:system/bin/compcache \
     vendor/TeamICS/prebuilt/common/bin/handle_compcache:system/bin/handle_compcache
 
-PRODUCT_COPY_FILES +=  \
-    vendor/TeamICS/proprietary/Term.apk:system/app/Term.apk \
-    vendor/TeamICS/proprietary/lib/armeabi/libjackpal-androidterm4.so:system/lib/libjackpal-androidterm4.so \
-    vendor/TeamICS/prebuilt/common/bootanimation.zip:system/media/bootanimation.zip
+#PRODUCT_COPY_FILES +=  \
+#    vendor/TeamICS/proprietary/Term.apk:system/app/Term.apk \
+#    vendor/TeamICS/proprietary/lib/armeabi/libjackpal-androidterm4.so:system/lib/libjackpal-androidterm4.so \
+#    vendor/TeamICS/prebuilt/common/bootanimation.zip:system/media/bootanimation.zip
   	
 
 # Enable SIP+VoIP on all targets
@@ -45,8 +45,8 @@ PRODUCT_PACKAGES += \
     LatinIME \
     SpareParts \
     Superuser \
-    Superuser.apk \
-    su
+    Superuser.apk #\
+#    su
 
 # Optional CM packages
 PRODUCT_PACKAGES += \
@@ -59,7 +59,7 @@ PRODUCT_PACKAGES += \
 # Custom CM packages
 PRODUCT_PACKAGES += \
     Trebuchet \
-    DSPManager \
+#    DSPManager \
     libcyanogen-dsp \
     audio_effects.conf
 
